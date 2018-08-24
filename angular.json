@@ -3,17 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "myFirstApp": {
+    "MyFirstAngularApp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/myFirstApp",
+            "outputPath": "dist/MyFirstAngularApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/Scss/styles.scss"
             ],
             "scripts": []
           },
@@ -50,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "myFirstApp:build"
+            "browserTarget": "MyFirstAngularApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "myFirstApp:build:production"
+              "browserTarget": "MyFirstAngularApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "myFirstApp:build"
+            "browserTarget": "MyFirstAngularApp:build"
           }
         },
         "test": {
@@ -95,7 +99,7 @@
         }
       }
     },
-    "myFirstApp-e2e": {
+    "MyFirstAngularApp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +107,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "myFirstApp:serve"
+            "devServerTarget": "MyFirstAngularApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "myFirstApp:serve:production"
+              "devServerTarget": "MyFirstAngularApp:serve:production"
             }
           }
         },
@@ -123,5 +127,5 @@
       }
     }
   },
-  "defaultProject": "myFirstApp"
+  "defaultProject": "MyFirstAngularApp"
 }
